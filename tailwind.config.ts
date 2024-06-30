@@ -1,10 +1,13 @@
+import { orange } from "@mui/material/colors";
 import type { Config } from "tailwindcss";
+const flowbite = require("flowbite-react/tailwind");
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    flowbite.content(),
   ],
   theme: {
     container: {
@@ -19,6 +22,7 @@ const config: Config = {
       colors: {
         primary: "#008001",
         red: "#EA4B48",
+        orange: '#FF8A00',
         gray40: "#CCCCCC",
         gray30: "#D1D5DB",
         gray20: "#F2F2F2",
@@ -26,6 +30,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [flowbite.plugin(),],
 };
 export default config;

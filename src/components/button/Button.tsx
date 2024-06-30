@@ -97,7 +97,7 @@ export const Button: FC<ButtonProps> = ({
   const disableStyle = isDisabled ? "cursor-not-allowed" : "cursor-pointer";
   const colorFont = fontColorControl(fontColor);
   const sizeFont = fontSizeControl(fontSize);
-  const combinedClassName = `${width} ${height} ${roundedButton} ${colorFont} ${sizeFont} ${disableStyle} ${colorSchemeClass} ${className}`;
+  const combinedClassName = `flex items-center space-x-2 justify-center ${width} ${height} ${roundedButton} ${colorFont} ${sizeFont} ${disableStyle} ${colorSchemeClass} ${className}`;
 
   return (
     <button
@@ -106,9 +106,9 @@ export const Button: FC<ButtonProps> = ({
       onMouseOver={hover}
       onClick={onClick}
     >
-      {leftIcon}
+      <div>{leftIcon}</div>
       {children}
-      {rightIcon}
+      <div>{rightIcon}</div>
     </button>
   );
 };

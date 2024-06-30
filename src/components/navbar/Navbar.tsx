@@ -2,20 +2,19 @@ import React from "react";
 import Image from "next/image";
 import { Typography } from "../typhography/Typography";
 import { CiLocationOn, CiSearch } from "react-icons/ci";
-import { HiOutlineChevronDown } from "react-icons/hi";
-import { InputAdornment, Select, Tab, Tabs, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import Link from "next/link";
 import { Button } from "../button/Button";
 import { GoHeart } from "react-icons/go";
-import { PiHandbagLight, PiHandbagThin } from "react-icons/pi";
 import NavbarMenu from "./NavbarMenu";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Navbar = () => {
   return (
     <>
       <div className="flex flex-col w-full h-[190px] justify-between">
         {/* navbar 1 */}
-        <div className="container flex justify-between">
+        <div className="border flex px-[140px] justify-between items-center">
           <div className="flex">
             <CiLocationOn width={15} height={18} />
             <Typography
@@ -27,12 +26,15 @@ const Navbar = () => {
               Chambak,Phnom Penh
             </Typography>
           </div>
-          <div className="flex gap-5">
+          <div className="flex gap-5 items-center">
             <div className="flex gap-5 text-sm">
               <select className="border outline-none border-none">
-                {/* <option selected></option> */}
-                <option value="Eng">Eng</option>
-                <option value="KH">Khm</option>
+                <option value="Eng" className="text-[14px] font-normal">
+                  Eng
+                </option>
+                <option value="Kh" className="text-[14px] font-normal">
+                  Khm
+                </option>
               </select>
             </div>
             <Link href={"#"}>
@@ -50,34 +52,36 @@ const Navbar = () => {
         {/* navbar 2 */}
         <div className="container h-[85px] flex items-center justify-between">
           <Image src="/svg/logo.svg" alt="Icon" width={40} height={40} />
-          <div className="flex h-[45px]">
-            <div className="flex h-[45px] w-[496px]">
-              <TextField
-                fullWidth
+          <div className="flex items-center">
+            <div className="relative w-[496px]">
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <CiSearch size={20} />
+              </div>
+              <input
+                type="search"
+                id="search-dropdown"
+                className="block pl-12 pr-[24px] py-[14px] w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg rounded-lg border border-gray-300 focus:outline-none"
                 placeholder="Search"
-                id="outlined-basic"
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <CiSearch size={20} />
-                    </InputAdornment>
-                  ),
-                  sx: { height: 45 },
-                }}
+                required
               />
-              <Button width="w-[96px]" className="rounded-md">
-                Search
-              </Button>
+              <button
+                type="submit"
+                className="absolute top-0 right-0 px-[24px] py-[14px] text-sm font-medium h-full text-white bg-[#008001] rounded-r-lg"
+              >
+                <span>Search</span>
+              </button>
             </div>
           </div>
           <div className="flex gap-4 items-center">
             <GoHeart size={32} color="#1A1A1A" />
             <div className="h-8 border-l-2"></div>
-            {/* <PiHandbagThin className="w-[34px] h-[34px]" /> */}
             <Image src={"/svg/bag.svg"} alt="bag" width={34} height={34} />
             <div className="flex">
-              <Typography fontSize="sm" className="text-[11px]" fontWeight="normal">
+              <Typography
+                fontSize="xs"
+                className="text-[11px]"
+                fontWeight="normal"
+              >
                 Shopping cart:
               </Typography>
               <Typography fontSize="sm" fontWeight="bold" className="ml-2">
