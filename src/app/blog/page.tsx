@@ -1,22 +1,45 @@
 "use client";
-import PopularTags from "@/components/popular-tags/PopularTags";
-import TopCategories from "@/components/top-categories/TopCategories";
-import Breadcrumb from "@/components/bread-crumb/Breadcrumb";
+
+import React, { useState } from "react";
+import Link from "next/link";
 import Container from "@/components/container/Container";
+import Breadcrumb from "@/components/bread-crumb/Breadcrumb";
 import FilterHorizontalIcon from "@/components/icons/FilterHorizontalIcon";
 import SearchIcon from "@/components/icons/SearchIcon";
-import React, { useState } from "react";
+import TopCategories from "@/components/top-categories/TopCategories";
+import PopularTags from "@/components/popular-tags/PopularTags";
+import Gallery from "@/components/gallery/Gallery";
 import RecentlyAdded from "@/components/recent-add/RecentlyAdded";
 import BlogCard from "@/components/block-card/BlogCard";
 import Pagination from "@/components/pagination/Pagination";
-import Gallery from "@/components/gallery/Gallery";
 
 const blogData = [
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1673953510107-d5aee40d80a7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    title: "Curabitur porttitor orci eget neque accumsan.",
+    date: "Apr 25, 2021",
+    image:
+      "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    title: "Curabitur porttitor orci eget neque accumsan.",
+    date: "Apr 25, 2021",
+    image:
+      "https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    title: "Curabitur porttitor orci eget neque accumsan.",
+    date: "Apr 25, 2021",
+    image:
+      "https://plus.unsplash.com/premium_photo-1676325101744-ce4a45a331c7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
@@ -30,56 +53,49 @@ const blogData = [
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1641210444019-f61749d2951f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1696858386015-22cea0760a14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1664971883317-44091ea1b36b?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1702909171778-c4f2b22c1b14?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1663844169550-7fa698a59231?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1884&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Curabitur porttitor orci eget neque accumsan.",
     date: "Apr 25, 2021",
     image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    title: "Curabitur porttitor orci eget neque accumsan.",
-    date: "Apr 25, 2021",
-    image:
-      "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1631364918796-b5cf912d661d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
@@ -173,13 +189,14 @@ const Blog = () => {
           </div>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             {currentBlogs.map((blog, index) => (
-              <BlogCard
-                key={index}
-                title={blog.title}
-                date={blog.date}
-                image={blog.image}
-                excerpt={blog.excerpt}
-              />
+              <Link href={`/blog/${index}`} key={index}>
+                <BlogCard
+                  title={blog.title}
+                  date={blog.date}
+                  image={blog.image}
+                  excerpt={blog.excerpt}
+                />
+              </Link>
             ))}
           </div>
         </div>
