@@ -14,7 +14,7 @@ Then, follow these steps:
 Open your terminal and run the following command to clone the project repository:
 
 ```sh
-git clone https://github.com/findingnithhh/merdical-project.git
+git clone https://github.com/nareth-dev/medical-project.git
 
 ```
 2. Navigate to the Project Directory:
