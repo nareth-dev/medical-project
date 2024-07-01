@@ -1,4 +1,5 @@
 import CardInformation from "@/components/card-information/CardInformation";
+import CompaniesLogo from "@/components/company-logo/CompanyLogo";
 import DailyBlog from "@/components/daily-blog/DailyBlog";
 import Features from "@/components/features/Features";
 import Footer from "@/components/footer/Footer";
@@ -67,7 +68,8 @@ const HomePage: React.FC = async () => {
           <div className="mt-[100px]">
             <DailyBlog blogs={blogs} />
           </div>
-          <Logos logos={logos} />
+          {/* <Logos logos={logos} /> */}
+          <CompaniesLogo/>
         </div>
       </main>
     </div>

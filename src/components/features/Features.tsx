@@ -5,7 +5,7 @@ import { Typography } from "../typhography/Typography";
 const Features = () => {
   return (
     <>
-      <div className="container flex flex-wrap h-[224px] gap-y-8 justify-between">
+      <div className="container flex-wrap h-auto gap-y-8 justify-between grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* car */}
         <div className="flex flex-col w-[250px] h-[224px] justify-center items-center">
           <Image src={"/svg/car.svg"} alt="bag" width={72} height={72} />

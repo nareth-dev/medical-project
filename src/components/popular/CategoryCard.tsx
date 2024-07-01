@@ -7,6 +7,7 @@ interface CategoryCardProps {
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({
+  
   title,
   image,
   isSelected,

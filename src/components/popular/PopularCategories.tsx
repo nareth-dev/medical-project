@@ -32,14 +32,12 @@ const PopularCategories: React.FC<PopularCategoriesProps> = ({
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-[32px]">
-          {categories.map((category, index) => (
-            <CategoryCard
-              key={index}
-              title={category.title}
-              image={category.image}
-              isSelected={category.title === "Medical Tube"}
-            />
-          ))}
+          <CategoryCard title="Syringe and needles" image="/images/syringe-needles.png" />
+          <CategoryCard title="Suture" image="/images/suture.png" />
+          <CategoryCard title="Blood Bag" image="/images/blood-ag.png" />
+          <CategoryCard title="Urine Bag" image="/images/urine-bag.png" />
+          <CategoryCard title="Medical Tube" image="/images/medical-tube.png" />
+          <CategoryCard title="Suture" image="/images/suture.png" />
         </div>
       </div>
     </section>

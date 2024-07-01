@@ -5,7 +5,7 @@ const data = {
     {
       title: "fasdfasdfas",
       image:
-        "https://th.bing.com/th/id/R.accf354f6bc40a246191c9036a76c3f5?rik=SusVoysXkS75DA&pid=ImgRaw&r=0",
+        "https://img.freepik.com/free-photo/yellow-fever-vaccine-concept-high-angle_23-2150062546.jpg?t=st=1719807107~exp=1719810707~hmac=66cc132bfa0dc474ae68c28dc8d37266ed633cf9f75f760ab0ed582e2c4e0c68&w=996",
     },
     {
       title: "fasdfasdffasdfasfas",
@@ -131,7 +131,7 @@ const data = {
     { name: "Group", src: "/images/group.png", alt: "Group Logo" },
     {
       name: "book-off",
-      src: "bookoff-corporation-logo.png",
+      src: "public/images/steps.png",
       alt: "Book-Off Logo",
     },
     { name: "gseries", src: "/images/group.png", alt: "G Series Logo" },

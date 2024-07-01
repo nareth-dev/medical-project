@@ -14,10 +14,10 @@ const NavbarMenu = () => {
   const pathname = usePathname();
   const menuItems: MenuItem[] = [
     { text: "Home", link: "/" },
-    { text: "Shop", link: "/about", hasDropdown: true },
+    { text: "Shop", link: "/shop", hasDropdown: true },
     { text: "Blog", link: "/blog", hasDropdown: true },
-    { text: "About Us", link: "/about-us" },
-    { text: "Contact Us", link: "/contact-us" },
+    { text: "About Us", link: "/about" },
+    { text: "Contact Us", link: "/contact"},
   ];
 
   const isActive = (link: string) => pathname === link;

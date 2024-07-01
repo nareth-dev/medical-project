@@ -1,221 +1,174 @@
+import Link from "next/link";
 import React from "react";
-import { Button } from "../button/Button";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { GoArrowRight } from "react-icons/go";
 import Image from "next/image";
-import { Typography } from "../typhography/Typography";
-import { BiLogoFacebook } from "react-icons/bi";
-import FacebookIcon from "../icons/FacebookIcon";
-import TwitterIcon from "../icons/TwitterIcon";
-import PinterestIcon from "../icons/PinterestIcon";
-import InstagramIcon from "../icons/InstagramIcon";
+import { CgFacebook } from "react-icons/cg";
+import { FaTwitter } from "react-icons/fa";
+import { FaPinterestP } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
+const privacies = [
+  { text: "Terms", link: "/" },
+  { text: "Privacy", link: "/" },
+  { text: "Cookies", link: "/" },
+];
 
 const Footer = () => {
   return (
     <>
-      {/* top */}
-      <div className="bg-gray10">
-        <div className="container flex items-center h-[88px]">
-          <div className="w-full flex justify-between items-center">
-            <div className="flex gap-4">
-              <Typography>Terms</Typography>
-              <Typography>Privacy</Typography>
-              <Typography>Cookies</Typography>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="hover:text-white hover:bg-[#008001] p-2 rounded-full">
-                <FacebookIcon className="w-6 h-6" />
-              </button>
-              <button className="hover:text-white hover:bg-[#008001] p-2 rounded-full">
-                <TwitterIcon className="w-6 h-6" />
-              </button>
-              <button className="hover:text-white hover:bg-[#008001] p-2 rounded-full">
-                <PinterestIcon className="w-6 h-6" />
-              </button>
-              <button className="hover:text-white hover:bg-[#008001] p-2 rounded-full">
-                <InstagramIcon className="w-6 h-6" />
-              </button>
-            </div>
+      <div className="w-full mx-auto bg-[#F7F7F7] ">
+        {/* top */}
+        <div className="container mx-auto flex justify-between items-center h-[88px] px-3 md:px-0 mt-5">
+          <div className="flex gap-[16px] text-xs md:text-base">
+            {privacies.map((privacy, index) => (
+              <Link key={index} href={privacy.link}>
+                {privacy.text}
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-2 text-[#4D4D4D] text-[18px]">
+            <Link
+              href="/"
+              className="hover:text-white hover:bg-primary rounded-full p-3"
+            >
+              <CgFacebook />
+            </Link>
+            <Link
+              href="/"
+              className="hover:text-white hover:bg-primary rounded-full p-3"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              href="/"
+              className="hover:text-white hover:bg-primary rounded-full p-3"
+            >
+              <FaPinterestP />
+            </Link>
+            <Link
+              href="/"
+              className="hover:text-white hover:bg-primary rounded-full p-3"
+            >
+              <FaInstagram />
+            </Link>
           </div>
         </div>
       </div>
-      {/* button */}
-      <footer
-        className="bg-[#1A1A1A] w-full h-[405px] flex flex-col justify-center"
-        style={{
-          backgroundImage: `url('/images/footer-bg.png')`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="container flex justify-between gap-[120px]">
-          {/* Logo */}
-          <div className="bg-green-400 flex flex-col w-[336px] h-[184px] gap-4">
-            <Image src={"/svg/logo.svg"} alt="logo" width={40} height={40} />
-            <Typography colorscheme="white">
-              Address: No.2A, Down Town Road No 7, Phum Kork Chambak,Phnom Penh
-            </Typography>
-            <div className="flex gap-4">
-              <Image
-                src={"/svg/phone.svg"}
-                alt="phone"
-                width={10}
-                height={16}
-              />
-              <Typography colorscheme="white">
-                Office: (+855) 088 5654 093
-              </Typography>
+      {/* bottom */}
+      <div className="w-full h-[600px] md:h-[405px] bg-[#1A1A1A] relative">
+        <Image
+          src="/images/footer-bg.png"
+          alt="bg"
+          width={100}
+          height={100}
+          className="w-[200px] h-[205px] md:w-[316px] md:h-[373px]"
+        />
+        <div className="container mx-auto">
+          <div className="container h-full m-auto absolute top-0 z-40 text-white">
+            <div className="flex justify-between">
+              <div className="py-4 md:py-14 px-2 w-full">
+                <div className="flex justify-between flex-wrap">
+                  {/* about company */}
+                  <div className="flex flex-col gap-4 w-full md:w-3/12 text-sm md:text-base">
+                    <Link href="/">
+                      <Image
+                        src="/svg/logo.svg"
+                        alt="logo"
+                        width={40}
+                        height={40}
+                        className="md:w-[40px] md:h-[40px]"
+                      />
+                    </Link>
+                    <p>
+                      Address: No.2A, Down Town Road No 7, Phum Kork
+                      Chambak,Phnom Penh
+                    </p>
+                    <p>Office: (+855) 088 5654 093</p>
+                    <p>Support: info@medi.com</p>
+                  </div>
+                  <div className="grid grid-cols-2 mt-5 md:grid-cols-4 w-full md:w-7/12">
+                    {/* my account */}
+                    <div className="mt-2">
+                      <h1 className="mb-5 text-sm md:text-base">My Account</h1>
+                      <div className="text-[#999999] text-xs md:text-sm flex flex-col gap-3">
+                        <Link href="/" className=" hover:text-white">
+                          My Account
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Order History
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Shoping Cart
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Wishlist
+                        </Link>
+                      </div>
+                    </div>
+                    {/* helps */}
+                    <div className="mt-2">
+                      <h1 className="mb-5 text-sm md:text-base">Helps</h1>
+                      <div className="text-[#999999] text-xs md:text-sm flex flex-col gap-3">
+                        <Link href="/" className=" hover:text-white">
+                          Contact
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Faqs
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Terms & Condition
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Privacy Policy
+                        </Link>
+                      </div>
+                    </div>
+                    {/* proxy */}
+                    <div className="mt-5 md:mt-2">
+                      <h1 className="mb-5 text-sm md:text-base">Proxy</h1>
+                      <div className="text-[#999999] text-xs md:text-sm flex flex-col gap-3">
+                        <Link href="/" className=" hover:text-white">
+                          About
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Shop
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Product
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Track Order
+                        </Link>
+                      </div>
+                    </div>
+                    {/* categories */}
+                    <div className="mt-5 md:mt-2">
+                      <h1 className="mb-5 text-sm md:text-base">Categories</h1>
+                      <div className="text-[#999999] text-xs md:text-sm flex flex-col gap-3">
+                        <Link href="/" className=" hover:text-white">
+                          Fruit & Vegetables
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Meat & Fish
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Bread & Bakery
+                        </Link>
+                        <Link href="/" className=" hover:text-white">
+                          Beauty & Health
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex gap-2">
-              <Image src={"/svg/mail.svg"} alt="phone" width={20} height={20} />
-              <Typography colorscheme="white">
-                Support: info@medi.com
-              </Typography>
-            </div>
-          </div>
-          {/* My Account */}
-          <div className="bg-green-400 flex flex-col w-[116px] h-[160px] gap-3">
-            <Typography colorscheme="white" className="mb-2">
-              My Account
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              My Account
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Order History
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Shoping Cart
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Wishlist
-            </Typography>
-          </div>
-          {/* Helps */}
-          <div className="bg-green-400 flex flex-col w-[140px] h-[160px] gap-3">
-            <Typography colorscheme="white" className="mb-2">
-              Helps
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Contact
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Faqs
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Terms & Condition
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Privacy Policy
-            </Typography>
-          </div>
-          {/* Proxy */}
-          <div className="bg-green-400 flex flex-col w-[100px] h-[160px] gap-3">
-            <Typography colorscheme="white" className="mb-2">
-              Proxy
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              About
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Shop
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Product
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Track Order
-            </Typography>
-          </div>
-          {/* Categories */}
-          <div className="bg-green-400 flex flex-col w-[140px] h-[170px] gap-3">
-            <Typography colorscheme="white" className="mb-2">
-              Categories
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Fruit & Vegetables
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Meat & Fish
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Bread & Bakery
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="normal"
-              className="text-[#999999]"
-            >
-              Beauty & Health
-            </Typography>
+            <div className="border-t border-secondary mt-4 md:mt-3"></div>
+            <p className="text-center mt-4 md:mt-5 text-[#808080] text-xs md:text-base">
+              Developed by Digital Solution
+            </p>
           </div>
         </div>
-        <hr className=" container border border-[#333333]" />
-        <div className="container flex justify-center">
-          <Typography className="text-[#808080] flex self-center">
-            Developed by Digital Solution
-          </Typography>
-        </div>
-      </footer>
+      </div>
     </>
   );
 };

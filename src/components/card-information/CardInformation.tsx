@@ -8,10 +8,10 @@ const CardInformation = () => {
   const targetDate = "2024-07-03T13:21:24";
   return (
     <>
-      <div className="container flex flex-wrap justify-between gap-2">
+      <div className="container flex flex-wrap xl:grid-cols-3 justify-between gap-2">
         {/* car sale for this month */}
         <div
-          className="border flex flex-col w-[480px] h-[570px] items-center rounded-md"
+          className="border flex flex-col w-[420px] h-[570px] items-center rounded-md"
           style={{
             backgroundImage: `url('svg/sale-month.svg')`,
             backgroundSize: "cover",
@@ -37,7 +37,7 @@ const CardInformation = () => {
         </div>
         {/* Materials Doctor */}
         <div
-          className="border border-green-400 flex flex-col w-[480px] h-[570px] items-center rounded-md"
+          className="border border-green-400 flex flex-col w-[420px] h-[570px] items-center rounded-md"
           style={{
             backgroundImage: `url('svg/materials-doctor.svg')`,
             backgroundSize: "cover",
@@ -65,8 +65,12 @@ const CardInformation = () => {
             </div>
             <Button
               variant="contained"
-              className="bg-[#008001] hover:bg-[#00a400] w-[190px] h-[50px] text-[16px] rounded-full normal-case"
-              endIcon={<IoIosArrowRoundForward size={24} />}
+              className="bg-white border-[#00a400] hover:bg-[#00a400] hover:text-white w-[190px] h-[50px] text-[16px] rounded-full normal-case"
+              endIcon={<IoIosArrowRoundForward size={24} className="hover:text-white"/>}
+              style={{
+                border: "2px solid #00a400",
+                color: "#008001",
+              }}
             >
               Shop Now
             </Button>
@@ -74,7 +78,7 @@ const CardInformation = () => {
         </div>
         {/* Discount */}
         <div
-          className="border border-green-400 flex flex-col w-[480px] h-[570px] items-center rounded-md"
+          className="border border-green-400 flex flex-col w-[420px] h-[570px] items-center rounded-md"
           style={{
             backgroundImage: `url('svg/discount.svg')`,
             backgroundSize: "cover",
@@ -104,8 +108,12 @@ const CardInformation = () => {
             </div>
             <Button
               variant="contained"
-              className="bg-[#008001] hover:bg-[#00a400] w-[190px] h-[50px] text-[16px] rounded-full normal-case"
-              endIcon={<IoIosArrowRoundForward size={24} />}
+              className="bg-white border-[#00a400] hover:bg-[#00a400] hover:text-white w-[190px] h-[50px] text-[16px] rounded-full normal-case"
+              endIcon={<IoIosArrowRoundForward size={24} className="hover:text-white"/>}
+              style={{
+                border: "2px solid #00a400",
+                color: "#008001",
+              }}
             >
               Shop Now
             </Button>
